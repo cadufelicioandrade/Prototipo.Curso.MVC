@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Prototipo.Curso.MVC.Web/1.0.0": {
+        "runtime": {
+          "Prototipo.Curso.MVC.Web.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Prototipo.Curso.MVC.Web/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
