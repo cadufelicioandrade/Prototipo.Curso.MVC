@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Prototipo.Curso.MVC.Web.Models.EstadoViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Novo Estado</a> | <a asp-controller="Cidade" asp-action="Index">Voltar p/ Cidade</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Estado
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeEstado)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { Id = item.EstadoId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

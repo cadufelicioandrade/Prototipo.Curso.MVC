@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Prototipo.Curso.MVC.Web.Models.FilmeViewModel>
+
+@{
+    ViewData["Title"] = "Listagem Filmes";
+}
+
+<h2>Listagem Filmes</h2>
+
+<p>
+    <a asp-action="Create">Novo Filme</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Título
+            </th>
+            <th>
+                Ano
+            </th>
+            <th>
+                Valor Diária
+            </th>
+            <th>
+                Gênero
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TituloFilme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ano)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorDiaria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.generoViewModel.NomeGenero)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { Id = item.FilmeId }) |
+                @Html.ActionLink("Detalhes", "Details", new { Id = item.FilmeId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

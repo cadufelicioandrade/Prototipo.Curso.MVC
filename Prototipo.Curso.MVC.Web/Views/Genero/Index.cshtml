@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Prototipo.Curso.MVC.Web.Models.GeneroViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Listagem de Gêneros</h2>
+
+<p>
+    <a asp-action="Create">Novo Gênero</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome Gênero
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeGenero)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { Id = item.GeneroId })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

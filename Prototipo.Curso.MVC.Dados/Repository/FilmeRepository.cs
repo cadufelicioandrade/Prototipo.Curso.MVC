@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Prototipo.Curso.MVC.Dados.Context;
 using Prototipo.Curso.MVC.Dados.Interfaces;
 using Prototipo.Curso.MVC.Dominio.Modelos;
@@ -24,12 +25,20 @@ namespace Prototipo.Curso.MVC.Dados.Repository
 
         public Filme GetById(int id)
         {
-            return _context.Filme.FirstOrDefault(f => f.Id == id);
+            return _context.Filme
+                        .Include(f => f.Diretor)
+                        .Include(f => f.Genero)
+                        .Include(f => f.ItemLocacoes)
+                        .FirstOrDefault(f => f.Id == id);
         }
 
         public List<Filme> GetAll()
         {
-            return _context.Filme.ToList();
+            return _context.Filme
+                        .Include(f => f.Diretor)
+                        .Include(f => f.Genero)
+                        .Include(f => f.ItemLocacoes)
+                        .ToList();
         }
 
         public Filme Update(Filme entity)
