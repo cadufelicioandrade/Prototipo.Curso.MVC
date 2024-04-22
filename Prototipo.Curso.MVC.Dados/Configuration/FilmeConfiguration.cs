@@ -23,9 +23,6 @@ namespace Prototipo.Curso.MVC.Dados.Configuration
             builder.Property(f => f.Disponivel)
                 .HasColumnType("bit")
                 .HasDefaultValue(1);
-            builder.Property(f => f.Ativo)
-                .HasColumnType("bit")
-                .HasDefaultValue(1);
             builder.Property(f => f.Ano)
                 .HasColumnType("int");
 

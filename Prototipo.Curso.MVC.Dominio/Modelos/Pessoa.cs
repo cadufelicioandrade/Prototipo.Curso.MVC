@@ -21,5 +21,7 @@ namespace Prototipo.Curso.MVC.Dominio.Modelos
         public string TelFixo { get; set; }
         public string CPF { get; set; }
         public DateTime DataNascimento { get; set; }
+        public string Cidade { get; set; }
+        
     }
 }

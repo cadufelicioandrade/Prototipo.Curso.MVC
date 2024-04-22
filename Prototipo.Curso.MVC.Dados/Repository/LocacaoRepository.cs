@@ -3,11 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prototipo.Curso.MVC.Dados.Context;
 using Prototipo.Curso.MVC.Dados.Interfaces;
+using Prototipo.Curso.MVC.Dominio.Modelos;
 
 namespace Prototipo.Curso.MVC.Dados.Repository
 {
-    public class LocacaoRepository : IItemLocacaoRepository
+    public class LocacaoRepository : BaseRepository, IBaseInterface<Locacao>, ILocacaoRepository
     {
+        public LocacaoRepository(LocadoraContext locadoraContext) : base(locadoraContext)
+        {
+        }
+
+        public Locacao Create(Locacao entity)
+        {
+            _context.Locacao.Add(entity);
+            _context.SaveChanges();
+            return entity;
+        }
+
+        public Locacao GetById(int id)
+        {
+            return _context.Locacao.FirstOrDefault(l => l.Id == id);
+        }
+
+        public List<Locacao> GetAll()
+        {
+            return _context.Locacao.ToList();
+        }
+
+        public Locacao Update(Locacao entity)
+        {
+            _context.Locacao.Update(entity);
+            _context.SaveChanges();
+            return entity;
+        }
     }
 }

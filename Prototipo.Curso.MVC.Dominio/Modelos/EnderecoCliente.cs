@@ -16,5 +16,8 @@ namespace Prototipo.Curso.MVC.Dominio.Modelos
         public virtual Cliente Cliente { get; set; }
         public int ClienteId { get; set; }
 
+        public virtual Cidade Cidade { get; set; }
+        public int CidadeId { get; set; }
+
     }
 }

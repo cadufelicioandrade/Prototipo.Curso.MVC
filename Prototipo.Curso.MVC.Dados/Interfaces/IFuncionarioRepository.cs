@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prototipo.Curso.MVC.Dominio.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Prototipo.Curso.MVC.Dados.Interfaces
 {
-    public interface IFuncionarioRepository
+    public interface IFuncionarioRepository : IBaseInterface<Funcionario>
     {
+        public bool Inativar(int id);
     }
 }

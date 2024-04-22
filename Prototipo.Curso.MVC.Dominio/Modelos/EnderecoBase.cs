@@ -13,7 +13,6 @@ namespace Prototipo.Curso.MVC.Dominio.Modelos
         public string CEP { get; set; }
         public string Numero { get; set; }
 
-        public virtual Cidade Cidade { get; set; }
-        public int CidadeId { get; set; }
+        
     }
 }

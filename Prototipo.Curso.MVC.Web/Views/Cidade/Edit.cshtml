@@ -1,0 +1,46 @@
+﻿@model Prototipo.Curso.MVC.Web.Models.CidadeViewModel
+
+@{
+    ViewData["Title"] = "Edição";
+}
+
+<h2>Edição Cidade</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <input hidden asp-for="CidadeId" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="NomeCidade" class="control-label">Nome Cidade</label>
+                <input asp-for="NomeCidade" class="form-control" />
+                <span asp-validation-for="NomeCidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoViewModel.NomeEstado" class="control-label">Estado Atual</label>
+                <input disabled="disabled" asp-for="EstadoViewModel.NomeEstado" class="form-control" />
+                <span asp-validation-for="EstadoViewModel.NomeEstado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoId" class="control-label">Estado</label>
+                @Html.DropDownList("EstadoId", (MultiSelectList)ViewBag.estadoViewModelList, new { @class = "form-control" })
+                <span asp-validation-for="EstadoId" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar à listagem</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

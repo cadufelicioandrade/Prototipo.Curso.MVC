@@ -18,7 +18,6 @@ namespace Prototipo.Curso.MVC.Dominio.Modelos
         public int Ano { get; set; }
         public decimal ValorDiaria { get; set; }
         public bool Disponivel { get; set; }
-        public bool Ativo { get; set; }
 
         public virtual Diretor Diretor { get; set; }
         public int DiretorId { get; set; }

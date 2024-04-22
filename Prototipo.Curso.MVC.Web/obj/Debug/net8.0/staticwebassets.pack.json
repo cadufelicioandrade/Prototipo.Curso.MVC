@@ -13,6 +13,30 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\wwwroot\\img\\Locacao.png",
+      "PackagePath": "staticwebassets\\img\\Locacao.png"
+    },
+    {
+      "Id": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\wwwroot\\img\\cidade.png",
+      "PackagePath": "staticwebassets\\img\\cidade.png"
+    },
+    {
+      "Id": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\wwwroot\\img\\cliente.png",
+      "PackagePath": "staticwebassets\\img\\cliente.png"
+    },
+    {
+      "Id": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\wwwroot\\img\\diretor.png",
+      "PackagePath": "staticwebassets\\img\\diretor.png"
+    },
+    {
+      "Id": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\wwwroot\\img\\filme.png",
+      "PackagePath": "staticwebassets\\img\\filme.png"
+    },
+    {
+      "Id": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\wwwroot\\img\\genero.png",
+      "PackagePath": "staticwebassets\\img\\genero.png"
+    },
+    {
       "Id": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

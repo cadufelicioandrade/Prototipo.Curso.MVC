@@ -28,6 +28,10 @@ namespace Prototipo.Curso.MVC.Dados.Configuration
             builder.HasOne(e => e.Funcionario)
                 .WithOne(f => f.EnderecoFuncionario)
                 .HasForeignKey<EnderecoFuncionario>(e => e.FuncionarioId);
+
+            builder.HasOne(e => e.Cidade)
+                .WithMany(c => c.EnderecoFuncionario)
+                .HasForeignKey(e => e.CidadeId);
         }
     }
 }

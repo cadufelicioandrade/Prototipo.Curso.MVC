@@ -1,3 +1,4 @@
+using Azure.Core;
 using Microsoft.AspNetCore.Mvc;
 using Prototipo.Curso.MVC.Web.Models;
 using System.Diagnostics;
@@ -14,6 +15,11 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult OutrasInformacoes()
         {
             return View();
         }

@@ -32,10 +32,6 @@ namespace Prototipo.Curso.MVC.Dados.Configuration
             builder.Property(c => c.DataNascimento)
                 .HasColumnType("datetime2");
 
-
-            builder.HasMany(c => c.ItemLocacoes)
-                .WithOne(i => i.Cliente)
-                .HasForeignKey(i => i.ClienteId);
         }
     }
 }
