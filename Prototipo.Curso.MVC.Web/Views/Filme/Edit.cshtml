@@ -1,0 +1,69 @@
+﻿@model Prototipo.Curso.MVC.Web.Models.FilmeViewModel
+
+@{
+    ViewData["Title"] = "Edição";
+}
+
+
+<h2>Edição Filme</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input hidden asp-for="FilmeId" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="TituloFilme" class="control-label">Título Filme</label>
+                <input asp-for="TituloFilme" class="form-control" />
+                <span asp-validation-for="TituloFilme" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ano" class="control-label"></label>
+                <input asp-for="Ano" class="form-control" />
+                <span asp-validation-for="Ano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValorDiaria" class="control-label">Valor Diária</label>
+                <input asp-for="ValorDiaria" class="form-control" />
+                <span asp-validation-for="ValorDiaria" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Disponivel" /> @Html.DisplayNameFor(model => model.Disponivel)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiretorId" class="control-label">Diretores</label>
+                @Html.DropDownList("DiretorId", (MultiSelectList)ViewBag.diretorViewModelList, new {@class="form-control"})
+            </div>
+            <div class="form-group">
+                <label asp-for="GeneroId" class="control-label">Gêneros</label>
+                @Html.DropDownList("GeneroId", (MultiSelectList)ViewBag.generoViewModelList, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label asp-for="diretorViewModel.NomeDiretor" class="control-label">Diretor Atual</label>
+                <input disabled asp-for="diretorViewModel.NomeDiretor" class="form-control" />
+                <span asp-validation-for="diretorViewModel.NomeDiretor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="generoViewModel.NomeGenero" class="control-label">Gênero Atual</label>
+                <input disabled asp-for="generoViewModel.NomeGenero" class="form-control" />
+                <span asp-validation-for="generoViewModel.NomeGenero" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar à listagem</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -89,7 +89,21 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         // GET: FilmeController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var filme = _filmeRepository.GetById(id);
+            var filmeViewModel = new FilmeViewModel(filme);
+            var diretores = _diretorRepository.GetAll();
+            var generos = _generoRepository.GetAll();
+            var diretorViewModelList = new List<DiretorViewModel>();
+            var generoViewModelList = new List<GeneroViewModel>();
+
+            foreach (var diretor in diretores)
+                diretorViewModelList.Add(new DiretorViewModel(diretor));
+            foreach (var genero in generos)
+                generoViewModelList.Add(new GeneroViewModel(genero));
+
+            ViewBag.diretorViewModelList = new MultiSelectList(diretorViewModelList, "DiretorId", "NomeDiretor");
+            ViewBag.generoViewModelList = new MultiSelectList(generoViewModelList, "GeneroId", "NomeGenero");
+            return View(filmeViewModel);
         }
 
         // POST: FilmeController/Edit/5
@@ -99,27 +113,17 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: FilmeController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: FilmeController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
+                var filme = new Filme()
+                {
+                    Id = Convert.ToInt32(collection["FilmeId"]),
+                    TituloFilme = collection["TituloFilme"].ToString(),
+                    Ano = Convert.ToInt32(collection["Ano"]),
+                    ValorDiaria = Convert.ToDecimal(collection["ValorDiaria"]),
+                    Disponivel = collection["Disponivel"].ToString().Contains("true") ? true : false,
+                    DiretorId = Convert.ToInt32(collection["DiretorId"]),
+                    GeneroId = Convert.ToInt32(collection["GeneroId"])
+                };
+                _filmeRepository.Update(filme);
                 return RedirectToAction(nameof(Index));
             }
             catch

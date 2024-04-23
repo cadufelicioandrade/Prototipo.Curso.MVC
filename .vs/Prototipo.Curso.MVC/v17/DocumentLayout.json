@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1B064ADE-BCBC-4194-A35C-BD09BD247AE2}|Prototipo.Curso.MVC.Web\\Prototipo.Curso.MVC.Web.csproj|c:\\users\\carlos eduardo\\desktop\\prototipo.curso.mvc\\prototipo.curso.mvc.web\\controllers\\filmecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1B064ADE-BCBC-4194-A35C-BD09BD247AE2}|Prototipo.Curso.MVC.Web\\Prototipo.Curso.MVC.Web.csproj|solutionrelative:prototipo.curso.mvc.web\\controllers\\filmecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1B064ADE-BCBC-4194-A35C-BD09BD247AE2}|Prototipo.Curso.MVC.Web\\Prototipo.Curso.MVC.Web.csproj|c:\\users\\carlos eduardo\\desktop\\prototipo.curso.mvc\\prototipo.curso.mvc.web\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B064ADE-BCBC-4194-A35C-BD09BD247AE2}|Prototipo.Curso.MVC.Web\\Prototipo.Curso.MVC.Web.csproj|solutionrelative:prototipo.curso.mvc.web\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B064ADE-BCBC-4194-A35C-BD09BD247AE2}|Prototipo.Curso.MVC.Web\\Prototipo.Curso.MVC.Web.csproj|c:\\users\\carlos eduardo\\desktop\\prototipo.curso.mvc\\prototipo.curso.mvc.web\\views\\filme\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1B064ADE-BCBC-4194-A35C-BD09BD247AE2}|Prototipo.Curso.MVC.Web\\Prototipo.Curso.MVC.Web.csproj|solutionrelative:prototipo.curso.mvc.web\\views\\filme\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1B064ADE-BCBC-4194-A35C-BD09BD247AE2}|Prototipo.Curso.MVC.Web\\Prototipo.Curso.MVC.Web.csproj|c:\\users\\carlos eduardo\\desktop\\prototipo.curso.mvc\\prototipo.curso.mvc.web\\views\\cliente\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B064ADE-BCBC-4194-A35C-BD09BD247AE2}|Prototipo.Curso.MVC.Web\\Prototipo.Curso.MVC.Web.csproj|solutionrelative:prototipo.curso.mvc.web\\views\\cliente\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B064ADE-BCBC-4194-A35C-BD09BD247AE2}|Prototipo.Curso.MVC.Web\\Prototipo.Curso.MVC.Web.csproj|c:\\users\\carlos eduardo\\desktop\\prototipo.curso.mvc\\prototipo.curso.mvc.web\\views\\filme\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1B064ADE-BCBC-4194-A35C-BD09BD247AE2}|Prototipo.Curso.MVC.Web\\Prototipo.Curso.MVC.Web.csproj|solutionrelative:prototipo.curso.mvc.web\\views\\filme\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1B064ADE-BCBC-4194-A35C-BD09BD247AE2}|Prototipo.Curso.MVC.Web\\Prototipo.Curso.MVC.Web.csproj|c:\\users\\carlos eduardo\\desktop\\prototipo.curso.mvc\\prototipo.curso.mvc.web\\models\\filmeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1B064ADE-BCBC-4194-A35C-BD09BD247AE2}|Prototipo.Curso.MVC.Web\\Prototipo.Curso.MVC.Web.csproj|solutionrelative:prototipo.curso.mvc.web\\models\\filmeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1B064ADE-BCBC-4194-A35C-BD09BD247AE2}|Prototipo.Curso.MVC.Web\\Prototipo.Curso.MVC.Web.csproj|c:\\users\\carlos eduardo\\desktop\\prototipo.curso.mvc\\prototipo.curso.mvc.web\\views\\cliente\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1B064ADE-BCBC-4194-A35C-BD09BD247AE2}|Prototipo.Curso.MVC.Web\\Prototipo.Curso.MVC.Web.csproj|solutionrelative:prototipo.curso.mvc.web\\views\\cliente\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,53 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\Views\\Filme\\Details.cshtml",
-              "RelativeDocumentMoniker": "Prototipo.Curso.MVC.Web\\Views\\Filme\\Details.cshtml",
-              "ToolTip": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\Views\\Filme\\Details.cshtml",
-              "RelativeToolTip": "Prototipo.Curso.MVC.Web\\Views\\Filme\\Details.cshtml",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAACwAAABGAAAA",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\Views\\Cliente\\Index.cshtml",
+              "RelativeDocumentMoniker": "Prototipo.Curso.MVC.Web\\Views\\Cliente\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\Views\\Cliente\\Index.cshtml",
+              "RelativeToolTip": "Prototipo.Curso.MVC.Web\\Views\\Cliente\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADoAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-22T20:04:31.915Z",
+              "WhenOpened": "2024-04-23T00:13:23.018Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\Views\\Filme\\Index.cshtml",
-              "RelativeDocumentMoniker": "Prototipo.Curso.MVC.Web\\Views\\Filme\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\Views\\Filme\\Index.cshtml",
-              "RelativeToolTip": "Prototipo.Curso.MVC.Web\\Views\\Filme\\Index.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAC4AAABSAAAA",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\Views\\Cliente\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Prototipo.Curso.MVC.Web\\Views\\Cliente\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\Views\\Cliente\\Edit.cshtml",
+              "RelativeToolTip": "Prototipo.Curso.MVC.Web\\Views\\Cliente\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEkAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-22T19:32:45.539Z",
+              "WhenOpened": "2024-04-23T00:11:49.342Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FilmeController.cs",
-              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\Controllers\\FilmeController.cs",
-              "RelativeDocumentMoniker": "Prototipo.Curso.MVC.Web\\Controllers\\FilmeController.cs",
-              "ToolTip": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\Controllers\\FilmeController.cs",
-              "RelativeToolTip": "Prototipo.Curso.MVC.Web\\Controllers\\FilmeController.cs",
-              "ViewState": "AQIAAEMAAAAAAAAAAAAAAFYAAAAIAAAA",
+              "Title": "ClienteController.cs",
+              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\Controllers\\ClienteController.cs",
+              "RelativeDocumentMoniker": "Prototipo.Curso.MVC.Web\\Controllers\\ClienteController.cs",
+              "ToolTip": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\Controllers\\ClienteController.cs",
+              "RelativeToolTip": "Prototipo.Curso.MVC.Web\\Controllers\\ClienteController.cs",
+              "ViewState": "AQIAAHMAAAAAAAAAAAAQwIoAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:29:45.091Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FilmeViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\Models\\FilmeViewModel.cs",
-              "RelativeDocumentMoniker": "Prototipo.Curso.MVC.Web\\Models\\FilmeViewModel.cs",
-              "ToolTip": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\Models\\FilmeViewModel.cs",
-              "RelativeToolTip": "Prototipo.Curso.MVC.Web\\Models\\FilmeViewModel.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAkwBEAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T19:20:42.794Z",
+              "WhenOpened": "2024-04-22T22:50:22.457Z",
               "EditorCaption": ""
             }
           ]
