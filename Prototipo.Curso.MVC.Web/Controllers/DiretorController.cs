@@ -40,10 +40,8 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         {
             try
             {
-                var diretor = new Diretor()
-                {
-                    Nome = collection["NomeDiretor"]
-                };
+                var diretorViewModel = new DiretorViewModel();
+                var diretor = diretorViewModel.ToDiretor(collection);
                 _diretorRepository.Create(diretor);
                 return RedirectToAction(nameof(Index));
             }
@@ -68,11 +66,8 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         {
             try
             {
-                var diretor = new Diretor()
-                {
-                    Id = Convert.ToInt32(collection["DiretorId"]),
-                    Nome = collection["NomeDiretor"].ToString()
-                };
+                var diretorViewModel = new DiretorViewModel();
+                var diretor = diretorViewModel.ToDiretor(collection);
                 _diretorRepository.Update(diretor);
                 return RedirectToAction(nameof(Index));
             }

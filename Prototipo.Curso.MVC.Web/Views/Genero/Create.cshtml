@@ -1,10 +1,11 @@
-﻿@model Prototipo.Curso.MVC.Web.Models.GeneroViewModel
+﻿@model VideoLocadora.MVC.Web.Models.GeneroViewModel
 
 @{
     ViewData["Title"] = "Novo Gênero";
 }
 
-<h4>Novo Genero</h4>
+<h2>Novo Gênero</h2>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -24,9 +25,11 @@
 </div>
 
 <div>
-    <a asp-action="Index">Voltar à listagem</a>
+    <a asp-action="Index">Voltar à Lista</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

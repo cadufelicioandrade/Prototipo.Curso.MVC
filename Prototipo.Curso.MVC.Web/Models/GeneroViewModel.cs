@@ -4,21 +4,29 @@ namespace Prototipo.Curso.MVC.Web.Models
 {
     public class GeneroViewModel
     {
-        public GeneroViewModel(Genero genero)
+        public GeneroViewModel(Genero genero = null)
         {
-            GeneroId = genero.Id;
-            NomeGenero = genero.NomeGenero;
+            if (genero != null)
+            {
+                GeneroId = genero.Id;
+                NomeGenero = genero.NomeGenero;
+            }
+
         }
+
         public int GeneroId { get; set; }
         public string NomeGenero { get; set; }
 
-        public Genero GeneroViewModelToGenero()
+        public Genero ToGenero(IFormCollection collection)
         {
-            var genero = new Genero()
+            var genero = new Genero();
+
+            if (!String.IsNullOrEmpty(collection["GeneroId"]))
             {
-                Id = GeneroId,
-                NomeGenero = NomeGenero,
-            };
+                genero.Id = Convert.ToInt32(collection["GeneroId"]);
+            }
+
+            genero.NomeGenero = collection["NomeGenero"].ToString();
             return genero;
         }
     }

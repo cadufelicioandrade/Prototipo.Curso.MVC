@@ -22,7 +22,7 @@ namespace Prototipo.Curso.MVC.Web.Controllers
             var estadoViewModelList = new List<EstadoViewModel>();
 
             foreach (var estado in estados)
-             estadoViewModelList.Add(new EstadoViewModel(estado));
+                estadoViewModelList.Add(new EstadoViewModel(estado));
 
             return View(estadoViewModelList);
         }
@@ -40,12 +40,11 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         {
             try
             {
-                var estado = new Estado()
-                {
-                    NomeEstado = collection["NomeEstado"].ToString()
-                };
+                var estadoViewModel = new EstadoViewModel();
+                var estado = estadoViewModel.ToEstado(collection);
 
                 _estadoRepository.Create(estado);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -70,13 +69,11 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         {
             try
             {
-                var estado = new Estado()
-                {
-                    Id = Convert.ToInt32(collection["EstadoId"]),
-                    NomeEstado = collection["NomeEstado"].ToString()
-                };
+                var estadoViewModel = new EstadoViewModel();
+                var estado = estadoViewModel.ToEstado(collection);
 
                 _estadoRepository.Update(estado);
+
                 return RedirectToAction(nameof(Index));
             }
             catch

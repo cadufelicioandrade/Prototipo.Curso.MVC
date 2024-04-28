@@ -4,12 +4,15 @@ namespace Prototipo.Curso.MVC.Web.Models
 {
     public class CidadeViewModel
     {
-        public CidadeViewModel(Cidade cidade)
+        public CidadeViewModel(Cidade cidade = null)
         {
-            CidadeId = cidade.Id;
-            NomeCidade = cidade.NomeCidade;
-            EstadoViewModel = new EstadoViewModel(cidade.Estado);
-            EstadoId = cidade.EstadoId;
+            if (cidade != null)
+            {
+                CidadeId = cidade.Id;
+                NomeCidade = cidade.NomeCidade;
+                EstadoViewModel = new EstadoViewModel(cidade.Estado);
+                EstadoId = cidade.EstadoId;
+            }
         }
 
         public int CidadeId { get; set; }
@@ -17,16 +20,17 @@ namespace Prototipo.Curso.MVC.Web.Models
         public virtual EstadoViewModel EstadoViewModel { get; set; }
         public int EstadoId { get; set; }
 
-        public Cidade CidadeViewModelToCidade()
+        public Cidade ToCidade(IFormCollection colletcion)
         {
             var cidade = new Cidade();
-            cidade.Id = CidadeId;
-            cidade.NomeCidade = NomeCidade;
-            cidade.Estado = new Estado()
+
+            if (!String.IsNullOrEmpty(colletcion["CidadeId"].ToString()))
             {
-                Id = EstadoId,
-                NomeEstado = this.EstadoViewModel.NomeEstado,
-            };
+                cidade.Id = Convert.ToInt32(colletcion["CidadeId"]);
+            }
+
+            cidade.NomeCidade = colletcion["NomeCidade"].ToString();
+            cidade.EstadoId = Convert.ToInt32(colletcion["EstadoId"]);
 
             return cidade;
         }

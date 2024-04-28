@@ -1,4 +1,4 @@
-﻿@model Prototipo.Curso.MVC.Web.Models.DiretorViewModel
+﻿@model VideoLocadora.MVC.Web.Models.DiretorViewModel
 
 @{
     ViewData["Title"] = "Edição";
@@ -27,9 +27,11 @@
 </div>
 
 <div>
-    <a asp-action="Index">Voltar à listagem</a>
+    <a asp-action="Index">Voltar à Lista</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

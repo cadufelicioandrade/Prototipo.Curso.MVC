@@ -12,8 +12,8 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         private readonly IClienteRepository _clienteRepository;
         private readonly ICidadeRepository _cidadeRepository;
 
-        public ClienteController(IClienteRepository clienteRepository, 
-                                ICidadeRepository cidadeRepository)
+        public ClienteController(IClienteRepository clienteRepository,
+                                 ICidadeRepository cidadeRepository)
         {
             _clienteRepository = clienteRepository;
             _cidadeRepository = cidadeRepository;
@@ -43,13 +43,7 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         // GET: ClienteController/Create
         public ActionResult Create()
         {
-            var cidades = _cidadeRepository.GetAll();
-            var cidadeViewModelList = new List<CidadeViewModel>();
-
-            foreach (var cidade in cidades)
-                cidadeViewModelList.Add(new CidadeViewModel(cidade));
-
-            ViewBag.cidadeViewModelList = new MultiSelectList(cidadeViewModelList, "CidadeId", "NomeCidade");
+            ImpletandoViewBag();
 
             return View();
         }
@@ -62,26 +56,9 @@ namespace Prototipo.Curso.MVC.Web.Controllers
             try
             {
                 var cidade = _cidadeRepository.GetById(Convert.ToInt32(collection["CidadeId"]));
-                var cliente = new Cliente()
-                {
-                    Nome = collection["Nome"].ToString(),
-                    SobreNome = collection["SobreNome"].ToString(),
-                    Email = collection["Email"].ToString(),
-                    Celular = collection["Celular"].ToString(),
-                    TelFixo = collection["TelFixo"].ToString(),
-                    CPF = collection["CPF"].ToString(),
-                    DataNascimento = Convert.ToDateTime(collection["DataNascimento"]),
-                    Cidade = cidade.NomeCidade,
-                    Endereco = new EnderecoCliente()
-                    {
-                        Logradouro = collection["enderecoClienteViewModel.Logradouro"].ToString(),
-                        Bairro = collection["enderecoClienteViewModel.Bairro"].ToString(),
-                        Numero = collection["enderecoClienteViewModel.Numero"].ToString(),
-                        CEP = collection["enderecoClienteViewModel.CEP"].ToString(),
-                        CidadeId = Convert.ToInt32(collection["CidadeId"])
-                    }
-                };
-
+                var clienteViewModel = new ClienteViewModel();
+                var cliente = clienteViewModel.ToCliente(collection);
+                cliente.Cidade = cliente.Nome;
                 _clienteRepository.Create(cliente);
 
                 return RedirectToAction(nameof(Index));
@@ -95,15 +72,9 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         // GET: ClienteController/Edit/5
         public ActionResult Edit(int id)
         {
-            var cliene = _clienteRepository.GetById(id);
-            var clienteViewModel = new ClienteViewModel(cliene);
-            var cidades = _cidadeRepository.GetAll();
-            var cidadeViewModelList = new List<CidadeViewModel>();
-
-            foreach (var cidade in cidades)
-                cidadeViewModelList.Add(new CidadeViewModel(cidade));
-
-            ViewBag.cidadeViewModelList = new MultiSelectList(cidadeViewModelList, "CidadeId", "NomeCidade");
+            var cliente = _clienteRepository.GetById(id);
+            var clienteViewModel = new ClienteViewModel(cliente);
+            ImpletandoViewBag();
 
             return View(clienteViewModel);
         }
@@ -116,33 +87,29 @@ namespace Prototipo.Curso.MVC.Web.Controllers
             try
             {
                 var cidade = _cidadeRepository.GetById(Convert.ToInt32(collection["CidadeId"]));
-                var cliente = new Cliente()
-                {
-                    Nome = collection["Nome"].ToString(),
-                    SobreNome = collection["SobreNome"].ToString(),
-                    Email = collection["Email"].ToString(),
-                    Celular = collection["Celular"].ToString(),
-                    TelFixo = collection["TelFixo"].ToString(),
-                    CPF = collection["CPF"].ToString(),
-                    DataNascimento = Convert.ToDateTime(collection["DataNascimento"]),
-                    Cidade = cidade.NomeCidade,
-                    Endereco = new EnderecoCliente()
-                    {
-                        Logradouro = collection["enderecoClienteViewModel.Logradouro"].ToString(),
-                        Bairro = collection["enderecoClienteViewModel.Bairro"].ToString(),
-                        Numero = collection["enderecoClienteViewModel.Numero"].ToString(),
-                        CEP = collection["enderecoClienteViewModel.CEP"].ToString(),
-                        CidadeId = Convert.ToInt32(collection["CidadeId"])
-                    }
-                };
+                var clienteViewModel = new ClienteViewModel();
+                var cliente = clienteViewModel.ToCliente(collection);
+                cliente.Cidade = cliente.Nome;
 
                 _clienteRepository.Update(cliente);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
                 return View();
             }
+        }
+
+        private void ImpletandoViewBag()
+        {
+            var cidades = _cidadeRepository.GetAll();
+            var cidadeViewModelList = new List<CidadeViewModel>();
+
+            foreach (var cidade in cidades)
+                cidadeViewModelList.Add(new CidadeViewModel(cidade));
+
+            ViewBag.cidadeViewModelList = new MultiSelectList(cidadeViewModelList, "CidadeId", "NomeCidade");
         }
 
     }

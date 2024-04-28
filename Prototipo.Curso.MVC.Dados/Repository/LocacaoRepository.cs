@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Prototipo.Curso.MVC.Dados.Context;
 using Prototipo.Curso.MVC.Dados.Interfaces;
 using Prototipo.Curso.MVC.Dominio.Modelos;
@@ -24,12 +25,16 @@ namespace Prototipo.Curso.MVC.Dados.Repository
 
         public Locacao GetById(int id)
         {
-            return _context.Locacao.FirstOrDefault(l => l.Id == id);
+            return _context.Locacao
+                        .Include(l => l.ItemLocacao)
+                        .FirstOrDefault(l => l.Id == id);
         }
 
         public List<Locacao> GetAll()
         {
-            return _context.Locacao.ToList();
+            return _context.Locacao
+                            .Include(l => l.ItemLocacao)
+                            .ToList();
         }
 
         public Locacao Update(Locacao entity)

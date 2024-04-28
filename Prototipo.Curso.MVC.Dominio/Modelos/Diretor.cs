@@ -13,7 +13,7 @@ namespace Prototipo.Curso.MVC.Dominio.Modelos
 
         }
 
-        public string Nome { get; set; }
+        public string NomeDiretor { get; set; }
         public virtual List<Filme> Filmes { get; set; }
     }
 }

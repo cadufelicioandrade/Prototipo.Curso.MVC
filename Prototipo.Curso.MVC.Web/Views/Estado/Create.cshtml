@@ -1,16 +1,16 @@
-﻿@model Prototipo.Curso.MVC.Web.Models.EstadoViewModel
+﻿@model VideoLocadora.MVC.Web.Models.EstadoViewModel
 
 @{
     ViewData["Title"] = "Novo Estado";
 }
 
-<h4>Novo Estado</h4>
+<h2>Novo Estado</h2>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
             <div class="form-group">
                 <label asp-for="NomeEstado" class="control-label">Nome Estado</label>
                 <input asp-for="NomeEstado" class="form-control" />
@@ -29,5 +29,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

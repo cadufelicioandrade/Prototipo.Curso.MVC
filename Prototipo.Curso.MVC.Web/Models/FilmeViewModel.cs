@@ -4,18 +4,23 @@ namespace Prototipo.Curso.MVC.Web.Models
 {
     public class FilmeViewModel
     {
-        public FilmeViewModel(Filme filme)
+        public FilmeViewModel(Filme filme = null)
         {
-            FilmeId = filme.Id;
-            TituloFilme = filme.TituloFilme;
-            Ano = filme.Ano;
-            ValorDiaria = filme.ValorDiaria;
-            Disponivel = filme.Disponivel;
-            diretorViewModel = new DiretorViewModel(filme.Diretor);
-            generoViewModel = new GeneroViewModel(filme.Genero);
+            if (filme != null)
+            {
+                FilmeId = filme.Id;
+                TituloFilme = filme.TituloFilme;
+                Ano = filme.Ano;
+                ValorDiaria = filme.ValorDiaria;
+                Disponivel = filme.Disponivel;
+                diretorViewModel = new DiretorViewModel(filme.Diretor);
+                DiretorId = filme.DiretorId;
+                generoViewModel = new GeneroViewModel(filme.Genero);
+                GeneroId = filme.GeneroId;
+            }
         }
 
-        public int FilmeId { get; set; } 
+        public int FilmeId { get; set; }
         public string TituloFilme { get; set; }
         public int Ano { get; set; }
         public decimal ValorDiaria { get; set; }
@@ -27,23 +32,21 @@ namespace Prototipo.Curso.MVC.Web.Models
         public GeneroViewModel generoViewModel { get; set; }
         public int GeneroId { get; set; }
 
-        public Filme FilmeViewModelToFilme()
+        public Filme ToFilme(IFormCollection collection)
         {
             var filme = new Filme();
-            filme.Id = FilmeId;
-            filme.TituloFilme = TituloFilme;
-            filme.Ano = Ano;
-            filme.ValorDiaria = ValorDiaria;
-            filme.Diretor = new Diretor()
+
+            if (!String.IsNullOrEmpty(collection["FilmeId"].ToString()))
             {
-                Id = DiretorId,
-                Nome = diretorViewModel.NomeDiretor
-            };
-            filme.Genero = new Genero()
-            {
-                Id = generoViewModel.GeneroId,
-                NomeGenero = generoViewModel.NomeGenero
-            };
+                filme.Id = Convert.ToInt32(collection["FilmeId"]);
+            }
+
+            filme.TituloFilme = collection["TituloFilme"].ToString();
+            filme.Ano = Convert.ToInt32(collection["Ano"]);
+            filme.ValorDiaria = Convert.ToDecimal(collection["ValorDiaria"]);
+            filme.Disponivel = collection["Disponivel"].ToString().Contains("true") ? true : false;
+            filme.DiretorId = Convert.ToInt32(collection["DiretorId"]);
+            filme.GeneroId = Convert.ToInt32(collection["GeneroId"]);
 
             return filme;
         }

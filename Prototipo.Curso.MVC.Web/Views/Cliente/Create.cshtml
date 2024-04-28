@@ -1,10 +1,10 @@
-﻿@model Prototipo.Curso.MVC.Web.Models.ClienteViewModel
+﻿@model VideoLocadora.MVC.Web.Models.ClienteViewModel
 
 @{
-    ViewData["Title"] = "Novo Cliente";
+    ViewData["Title"] = "Novo Cliete";
 }
 
-<h>Novo Cliente</h>
+<h2>Novo Cliente</h2>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -16,7 +16,7 @@
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SobreNome" class="control-label"></label>
+                <label asp-for="SobreNome" class="control-label">Sobre Nome</label>
                 <input asp-for="SobreNome" class="form-control" />
                 <span asp-validation-for="SobreNome" class="text-danger"></span>
             </div>
@@ -41,13 +41,14 @@
                 <span asp-validation-for="CPF" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DataNascimento" class="control-label"></label>
+                <label asp-for="DataNascimento" class="control-label">Data Nascimento</label>
                 <input asp-for="DataNascimento" class="form-control" />
                 <span asp-validation-for="DataNascimento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="enderecoClienteViewModel.cidadeViewModel.CidadeId" class="control-label"></label>
-                @Html.DropDownList("CidadeId", (MultiSelectList)ViewBag.cidadeViewModelList, new {@class="form-control"})
+                <label asp-for="Cidade" class="control-label"></label>
+                @Html.DropDownList("CidadeId", (MultiSelectList)ViewBag.cidadeViewModelList, new { @class = "form-control" })
+                <span asp-validation-for="Cidade" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="enderecoClienteViewModel.Logradouro" class="control-label"></label>
@@ -78,9 +79,11 @@
 </div>
 
 <div>
-    <a asp-action="Index">Voltar à listagem</a>
+    <a asp-action="Index">Voltar à Lista</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

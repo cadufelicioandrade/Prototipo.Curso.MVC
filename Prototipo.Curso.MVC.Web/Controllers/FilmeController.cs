@@ -13,8 +13,8 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         private readonly IGeneroRepository _generoRepository;
         private readonly IDiretorRepository _diretorRepository;
 
-        public FilmeController(IFilmeRepository filmeRepository, 
-                                IGeneroRepository generoRepository, 
+        public FilmeController(IFilmeRepository filmeRepository,
+                                IGeneroRepository generoRepository,
                                 IDiretorRepository diretorRepository)
         {
             _filmeRepository = filmeRepository;
@@ -39,24 +39,14 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         {
             var filme = _filmeRepository.GetById(id);
             var filmeViewModel = new FilmeViewModel(filme);
+
             return View(filmeViewModel);
         }
 
         // GET: FilmeController/Create
         public ActionResult Create()
         {
-            var diretores = _diretorRepository.GetAll();
-            var generos = _generoRepository.GetAll();
-            var diretorViewModelList = new List<DiretorViewModel>();
-            var generoViewModelList = new List<GeneroViewModel>();
-
-            foreach (var diretor in diretores)
-                diretorViewModelList.Add(new DiretorViewModel(diretor));
-            foreach (var genero in generos)
-                generoViewModelList.Add(new GeneroViewModel(genero));
-
-            ViewBag.diretorViewModelList = new MultiSelectList(diretorViewModelList, "DiretorId", "NomeDiretor");
-            ViewBag.generoViewModelList = new MultiSelectList(generoViewModelList, "GeneroId", "NomeGenero");
+            CriandoViewBag();
 
             return View();
         }
@@ -68,16 +58,10 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         {
             try
             {
-                var filme = new Filme()
-                {
-                    TituloFilme = collection["TituloFilme"].ToString(),
-                    Ano = Convert.ToInt32(collection["Ano"]),
-                    ValorDiaria = Convert.ToDecimal(collection["ValorDiaria"]),
-                    Disponivel = collection["Disponivel"].ToString().Contains("true") ? true : false,
-                    DiretorId = Convert.ToInt32(collection["DiretorId"]),
-                    GeneroId = Convert.ToInt32(collection["GeneroId"])
-                };
+                var filmeViewModel = new FilmeViewModel();
+                var filme = filmeViewModel.ToFilme(collection);
                 _filmeRepository.Create(filme);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -91,6 +75,32 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         {
             var filme = _filmeRepository.GetById(id);
             var filmeViewModel = new FilmeViewModel(filme);
+            CriandoViewBag();
+
+            return View(filmeViewModel);
+        }
+
+        // POST: FilmeController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, IFormCollection collection)
+        {
+            try
+            {
+                var filmeViewModel = new FilmeViewModel();
+                var filme = filmeViewModel.ToFilme(collection);
+                _filmeRepository.Update(filme);
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        private void CriandoViewBag()
+        {
             var diretores = _diretorRepository.GetAll();
             var generos = _generoRepository.GetAll();
             var diretorViewModelList = new List<DiretorViewModel>();
@@ -103,33 +113,6 @@ namespace Prototipo.Curso.MVC.Web.Controllers
 
             ViewBag.diretorViewModelList = new MultiSelectList(diretorViewModelList, "DiretorId", "NomeDiretor");
             ViewBag.generoViewModelList = new MultiSelectList(generoViewModelList, "GeneroId", "NomeGenero");
-            return View(filmeViewModel);
-        }
-
-        // POST: FilmeController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                var filme = new Filme()
-                {
-                    Id = Convert.ToInt32(collection["FilmeId"]),
-                    TituloFilme = collection["TituloFilme"].ToString(),
-                    Ano = Convert.ToInt32(collection["Ano"]),
-                    ValorDiaria = Convert.ToDecimal(collection["ValorDiaria"]),
-                    Disponivel = collection["Disponivel"].ToString().Contains("true") ? true : false,
-                    DiretorId = Convert.ToInt32(collection["DiretorId"]),
-                    GeneroId = Convert.ToInt32(collection["GeneroId"])
-                };
-                _filmeRepository.Update(filme);
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Prototipo.Curso.MVC.Web.Models.ClienteViewModel>
+﻿@model IEnumerable<VideoLocadora.MVC.Web.Models.ClienteViewModel>
 
 @{
     ViewData["Title"] = "Listagem Clientes";
@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SobreNome)
+                Sobre Nome
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Email)
@@ -34,31 +34,32 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SobreNome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Celular)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataNascimento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cidade)
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { Id = item.ClienteId }) |
-                @Html.ActionLink("Detalhes", "Details", new { Id = item.ClienteId })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SobreNome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataNascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidade)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { Id = item.ClienteId }) |
+                    @Html.ActionLink("Detalhes", "Details", new { Id = item.ClienteId })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

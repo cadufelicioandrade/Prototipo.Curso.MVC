@@ -12,7 +12,7 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         private readonly ICidadeRepository _cidadeRepository;
         private readonly IEstadoRepository _estadoRepository;
 
-        public CidadeController(ICidadeRepository cidadeRepository, 
+        public CidadeController(ICidadeRepository cidadeRepository,
                                 IEstadoRepository estadoRepository)
         {
             _cidadeRepository = cidadeRepository;
@@ -24,6 +24,7 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         {
             var cidades = _cidadeRepository.GetAll();
             var cidadeViewModelList = new List<CidadeViewModel>();
+
             foreach (var cidade in cidades)
                 cidadeViewModelList.Add(new CidadeViewModel(cidade));
 
@@ -35,19 +36,14 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         {
             var cidade = _cidadeRepository.GetById(id);
             var cidadeViewModel = new CidadeViewModel(cidade);
+
             return View(cidadeViewModel);
         }
 
         // GET: CidadeController/Create
         public ActionResult Create()
         {
-            var estados = _estadoRepository.GetAll();
-            var estadoViewModelList = new List<EstadoViewModel>();
-
-            foreach (var estado in estados)
-                estadoViewModelList.Add(new EstadoViewModel(estado));
-
-            ViewBag.estadoViewModelList = new MultiSelectList(estadoViewModelList, "EstadoId", "NomeEstado");
+            GetEstadosViewModel();
 
             return View();
         }
@@ -59,14 +55,10 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         {
             try
             {
-                var cidade = new Cidade()
-                {
-                    NomeCidade = collection["NomeCidade"].ToString(),
-                    EstadoId = Convert.ToInt32(collection["EstadoId"])
-                };
+                var cidadeViewModel = new CidadeViewModel();
+                var cidade = cidadeViewModel.ToCidade(collection);
 
-                var newCidade = _cidadeRepository.Create(cidade);
-
+                _cidadeRepository.Create(cidade);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -82,13 +74,7 @@ namespace Prototipo.Curso.MVC.Web.Controllers
             var cidade = _cidadeRepository.GetById(id);
             var cidadeViewModel = new CidadeViewModel(cidade);
 
-            var estados = _estadoRepository.GetAll();
-            var estadoViewModelList = new List<EstadoViewModel>();
-
-            foreach (var estado in estados)
-                estadoViewModelList.Add(new EstadoViewModel(estado));
-
-            ViewBag.estadoViewModelList = new MultiSelectList(estadoViewModelList, "EstadoId", "NomeEstado");
+            GetEstadosViewModel();
 
             return View(cidadeViewModel);
         }
@@ -100,13 +86,8 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         {
             try
             {
-                var cidade = new Cidade()
-                {
-                    Id = Convert.ToInt32(collection["CidadeId"]),
-                    EstadoId = Convert.ToInt32(collection["EstadoId"]),
-                    NomeCidade = collection["NomeCidade"].ToString()
-                };
-
+                var cidadeViewModel = new CidadeViewModel();
+                var cidade = cidadeViewModel.ToCidade(collection);
                 _cidadeRepository.Update(cidade);
 
                 return RedirectToAction(nameof(Index));
@@ -115,6 +96,17 @@ namespace Prototipo.Curso.MVC.Web.Controllers
             {
                 return View();
             }
+        }
+
+        private void GetEstadosViewModel()
+        {
+            var estados = _estadoRepository.GetAll();
+            var estadoViewModelList = new List<EstadoViewModel>();
+
+            foreach (var estado in estados)
+                estadoViewModelList.Add(new EstadoViewModel(estado));
+
+            ViewBag.estadoViewModelList = new MultiSelectList(estadoViewModelList, "EstadoId", "NomeEstado");
         }
 
     }

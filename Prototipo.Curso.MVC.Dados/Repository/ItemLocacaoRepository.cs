@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Prototipo.Curso.MVC.Dados.Context;
 using Prototipo.Curso.MVC.Dados.Interfaces;
 using Prototipo.Curso.MVC.Dominio.Modelos;
@@ -24,17 +25,27 @@ namespace Prototipo.Curso.MVC.Dados.Repository
 
         public ItemLocacao GetById(int id)
         {
-            throw new NotImplementedException();
+            return  _context.ItemLocacao
+                            .Include(i => i.Locacoes)
+                            .Include(i => i.Cliente)
+                            .Include(i => i.Funcionario)
+                            .FirstOrDefault(i => i.Id == id);
         }
 
         public List<ItemLocacao> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.ItemLocacao
+                            .Include(i => i.Locacoes)
+                            .Include(i => i.Cliente)
+                            .Include(i => i.Funcionario)
+                            .ToList();
         }
 
         public ItemLocacao Update(ItemLocacao entity)
         {
-            throw new NotImplementedException();
+            _context.Update(entity);
+            _context.SaveChanges();
+            return entity;
         }
     }
 }

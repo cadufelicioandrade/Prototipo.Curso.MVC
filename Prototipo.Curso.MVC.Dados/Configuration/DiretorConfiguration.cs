@@ -16,7 +16,7 @@ namespace Prototipo.Curso.MVC.Dados.Configuration
             builder.ToTable("TB_DIRETOR");
             builder.HasKey(d => d.Id);
 
-            builder.Property(d => d.Nome)
+            builder.Property(d => d.NomeDiretor)
                 .HasColumnType("varchar(50)");
 
             builder.HasMany(d => d.Filmes)

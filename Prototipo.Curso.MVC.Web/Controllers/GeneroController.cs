@@ -19,12 +19,12 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         public ActionResult Index()
         {
             var generos = _generoRepository.GetAll();
-            var generoViewModel = new List<GeneroViewModel>();
+            var generoViewModelList = new List<GeneroViewModel>();
 
             foreach (var genero in generos)
-                generoViewModel.Add(new GeneroViewModel(genero));
+                generoViewModelList.Add(new GeneroViewModel(genero));
 
-            return View(generoViewModel);
+            return View(generoViewModelList);
         }
 
         // GET: GeneroController/Create
@@ -40,10 +40,8 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         {
             try
             {
-                var genero = new Genero()
-                {
-                    NomeGenero = collection["NomeGenero"]
-                };
+                var generoViewModel = new GeneroViewModel();
+                var genero = generoViewModel.ToGenero(collection);
                 _generoRepository.Create(genero);
                 return RedirectToAction(nameof(Index));
             }
@@ -68,12 +66,10 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         {
             try
             {
-                var genero = new Genero()
-                {
-                    Id = Convert.ToInt32(collection["GeneroId"]),
-                    NomeGenero = collection["NomeGenero"]
-                };
+                var generoViewModel = new GeneroViewModel();
+                var genero = generoViewModel.ToGenero(collection);
                 _generoRepository.Update(genero);
+
                 return RedirectToAction(nameof(Index));
             }
             catch

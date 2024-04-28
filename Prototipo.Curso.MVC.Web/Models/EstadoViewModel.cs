@@ -4,20 +4,29 @@ namespace Prototipo.Curso.MVC.Web.Models
 {
     public class EstadoViewModel
     {
-        public EstadoViewModel(Estado estado)
+        public EstadoViewModel(Estado estado = null)
         {
-            EstadoId = estado.Id;
-            NomeEstado = estado.NomeEstado;
+            if (estado != null)
+            {
+                EstadoId = estado.Id;
+                NomeEstado = estado.NomeEstado;
+            }
         }
 
         public int EstadoId { get; set; }
         public string NomeEstado { get; set; }
 
-        public Estado EstadoViewModelToEstado()
+        public Estado ToEstado(IFormCollection collection)
         {
             var estado = new Estado();
-            estado.Id = EstadoId;
-            estado.NomeEstado = NomeEstado;
+
+            if (!String.IsNullOrEmpty(collection["EstadoId"].ToString()))
+            {
+                estado.Id = Convert.ToInt32(collection["EstadoId"]);
+            }
+
+            estado.NomeEstado = collection["NomeEstado"].ToString();
+
             return estado;
         }
     }
