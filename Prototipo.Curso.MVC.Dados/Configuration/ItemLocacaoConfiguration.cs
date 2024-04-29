@@ -21,9 +21,9 @@ namespace Prototipo.Curso.MVC.Dados.Configuration
             builder.Property(i => i.ValorDiaria)
                 .HasColumnType("decimal(8,2)");
 
-            builder.HasMany(i => i.Locacoes)
-                .WithOne(l => l.ItemLocacao)
-                .HasForeignKey(l => l.ItemLocacaoId);
+            builder.HasOne(i => i.Locacao)
+                .WithMany(l => l.ItemLocacoes)
+                .HasForeignKey(i => i.LocacaoId);
         }
     }
 }

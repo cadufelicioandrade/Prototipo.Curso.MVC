@@ -17,7 +17,6 @@ namespace Prototipo.Curso.MVC.Dominio.Modelos
         public DateTime DataDevolucao { get; set; }
         public decimal MultaAtraso { get; set; }
 
-        public virtual ItemLocacao ItemLocacao { get; set; }
-        public int ItemLocacaoId { get; set; }
+        public virtual List<ItemLocacao> ItemLocacoes { get; set; }
     }
 }

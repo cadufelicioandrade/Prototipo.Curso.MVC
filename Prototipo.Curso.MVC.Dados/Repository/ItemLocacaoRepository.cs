@@ -26,7 +26,7 @@ namespace Prototipo.Curso.MVC.Dados.Repository
         public ItemLocacao GetById(int id)
         {
             return  _context.ItemLocacao
-                            .Include(i => i.Locacoes)
+                            .Include(i => i.Locacao)
                             .Include(i => i.Cliente)
                             .Include(i => i.Funcionario)
                             .FirstOrDefault(i => i.Id == id);
@@ -35,7 +35,7 @@ namespace Prototipo.Curso.MVC.Dados.Repository
         public List<ItemLocacao> GetAll()
         {
             return _context.ItemLocacao
-                            .Include(i => i.Locacoes)
+                            .Include(i => i.Locacao)
                             .Include(i => i.Cliente)
                             .Include(i => i.Funcionario)
                             .ToList();

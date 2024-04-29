@@ -118,7 +118,7 @@ namespace Prototipo.Curso.MVC.Dados.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Nome")
+                    b.Property<string>("NomeDiretor")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
@@ -360,6 +360,9 @@ namespace Prototipo.Curso.MVC.Dados.Migrations
                     b.Property<int>("FuncionarioId")
                         .HasColumnType("int");
 
+                    b.Property<int>("LocacaoId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("ValorDiaria")
                         .HasColumnType("decimal(8,2)");
 
@@ -370,6 +373,8 @@ namespace Prototipo.Curso.MVC.Dados.Migrations
                     b.HasIndex("FilmeId");
 
                     b.HasIndex("FuncionarioId");
+
+                    b.HasIndex("LocacaoId");
 
                     b.ToTable("TB_ITEM_LOCACAO", (string)null);
                 });
@@ -388,9 +393,6 @@ namespace Prototipo.Curso.MVC.Dados.Migrations
                     b.Property<DateTime>("DataLocacao")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ItemLocacaoId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("MultaAtraso")
                         .HasColumnType("decimal(8,2)");
 
@@ -398,8 +400,6 @@ namespace Prototipo.Curso.MVC.Dados.Migrations
                         .HasColumnType("decimal(8,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ItemLocacaoId");
 
                     b.ToTable("TB_LOCACAO", (string)null);
                 });
@@ -503,22 +503,19 @@ namespace Prototipo.Curso.MVC.Dados.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Prototipo.Curso.MVC.Dominio.Modelos.Locacao", "Locacao")
+                        .WithMany("ItemLocacoes")
+                        .HasForeignKey("LocacaoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Cliente");
 
                     b.Navigation("Filme");
 
                     b.Navigation("Funcionario");
-                });
 
-            modelBuilder.Entity("Prototipo.Curso.MVC.Dominio.Modelos.Locacao", b =>
-                {
-                    b.HasOne("Prototipo.Curso.MVC.Dominio.Modelos.ItemLocacao", "ItemLocacao")
-                        .WithMany("Locacoes")
-                        .HasForeignKey("ItemLocacaoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ItemLocacao");
+                    b.Navigation("Locacao");
                 });
 
             modelBuilder.Entity("Prototipo.Curso.MVC.Dominio.Modelos.Cargo", b =>
@@ -569,9 +566,9 @@ namespace Prototipo.Curso.MVC.Dados.Migrations
                     b.Navigation("Filmes");
                 });
 
-            modelBuilder.Entity("Prototipo.Curso.MVC.Dominio.Modelos.ItemLocacao", b =>
+            modelBuilder.Entity("Prototipo.Curso.MVC.Dominio.Modelos.Locacao", b =>
                 {
-                    b.Navigation("Locacoes");
+                    b.Navigation("ItemLocacoes");
                 });
 #pragma warning restore 612, 618
         }

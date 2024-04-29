@@ -26,14 +26,14 @@ namespace Prototipo.Curso.MVC.Dados.Repository
         public Locacao GetById(int id)
         {
             return _context.Locacao
-                        .Include(l => l.ItemLocacao)
+                        .Include(l => l.ItemLocacoes)
                         .FirstOrDefault(l => l.Id == id);
         }
 
         public List<Locacao> GetAll()
         {
             return _context.Locacao
-                            .Include(l => l.ItemLocacao)
+                            .Include(l => l.ItemLocacoes)
                             .ToList();
         }
 

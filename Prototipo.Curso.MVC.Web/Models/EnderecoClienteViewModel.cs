@@ -19,7 +19,7 @@ namespace Prototipo.Curso.MVC.Web.Models
         public string Bairro { get; set; }
         public string CEP { get; set; }
         public string Numero { get; set; }
-        public CidadeViewModel cidadeViewModel { get; set; }s
+        public CidadeViewModel cidadeViewModel { get; set; }
 
 
     }

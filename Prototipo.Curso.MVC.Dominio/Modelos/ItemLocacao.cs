@@ -25,6 +25,8 @@ namespace Prototipo.Curso.MVC.Dominio.Modelos
         public virtual Funcionario Funcionario { get; set; }
         public int FuncionarioId { get; set; }
 
-        public virtual List<Locacao> Locacoes { get; set; }
+        public virtual Locacao Locacao { get; set; }
+        public int LocacaoId { get; set; }
+
     }
 }
