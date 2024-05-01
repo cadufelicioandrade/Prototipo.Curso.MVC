@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\img\\genero.png"
     },
     {
+      "Id": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\wwwroot\\js\\createLocacao.js",
+      "PackagePath": "staticwebassets\\js\\createLocacao.js"
+    },
+    {
       "Id": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

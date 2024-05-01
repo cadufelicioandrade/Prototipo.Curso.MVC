@@ -4,14 +4,17 @@ namespace Prototipo.Curso.MVC.Web.Models
 {
     public class EnderecoFuncionarioViewModel
     {
-        public EnderecoFuncionarioViewModel(EnderecoFuncionario enderecoFuncionario)
+        public EnderecoFuncionarioViewModel(EnderecoFuncionario enderecoFuncionario = null)
         {
-            EnderecoId = enderecoFuncionario.Id;
-            Logradouro = enderecoFuncionario.Logradouro;
-            Bairro = enderecoFuncionario.Bairro;
-            CEP = enderecoFuncionario.CEP;
-            Numero = enderecoFuncionario.Numero;
-            cidadeViewModel = new CidadeViewModel(enderecoFuncionario.Cidade);
+            if (enderecoFuncionario != null)
+            {
+                EnderecoId = enderecoFuncionario.Id;
+                Logradouro = enderecoFuncionario.Logradouro;
+                Bairro = enderecoFuncionario.Bairro;
+                CEP = enderecoFuncionario.CEP;
+                Numero = enderecoFuncionario.Numero;
+                cidadeViewModel = new CidadeViewModel(enderecoFuncionario.Cidade);
+            }
         }
 
         public int EnderecoId { get; set; }

@@ -27,6 +27,9 @@ namespace Prototipo.Curso.MVC.Dados.Repository
         {
             return _context.Locacao
                         .Include(l => l.ItemLocacoes)
+                        .Include("ItemLocacoes.Cliente")
+                        .Include("ItemLocacoes.Filme")
+                        .Include("ItemLocacoes.Funcionario")
                         .FirstOrDefault(l => l.Id == id);
         }
 
@@ -34,6 +37,9 @@ namespace Prototipo.Curso.MVC.Dados.Repository
         {
             return _context.Locacao
                             .Include(l => l.ItemLocacoes)
+                            .Include("ItemLocacoes.Cliente")
+                            .Include("ItemLocacoes.Filme")
+                            .Include("ItemLocacoes.Funcionario")
                             .ToList();
         }
 

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Prototipo.Curso.MVC.Web.Models.LocacaoViewModel>
+
+@{
+    ViewData["Title"] = "Listagem Locações";
+}
+
+<h2>Listagem Locações</h2>
+
+<p>
+    <a asp-action="Create">Nova Locação</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Cliente
+            </th>
+            <th>
+                Filme
+            </th>
+            <th>
+                Data Locação
+            </th>
+            <th>
+                Data Devolução
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemLocacoesViewModel.Where(i => i.ItemLocacaoId == item.LocacaoId).First().ClienteViewModel.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemLocacoesViewModel.Where(i => i.ItemLocacaoId == item.LocacaoId).First().FilmeViewModel.TituloFilme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataLocacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDevolucao)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { Id = item.LocacaoId }) |
+                @Html.ActionLink("Detalhes", "Details", new { Id = item.LocacaoId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

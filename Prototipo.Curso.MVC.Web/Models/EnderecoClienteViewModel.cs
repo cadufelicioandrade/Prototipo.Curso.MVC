@@ -4,14 +4,17 @@ namespace Prototipo.Curso.MVC.Web.Models
 {
     public class EnderecoClienteViewModel
     {
-        public EnderecoClienteViewModel(EnderecoCliente enderecoCliente)
+        public EnderecoClienteViewModel(EnderecoCliente enderecoCliente = null)
         {
-            EnderecoId = enderecoCliente.Id;
-            Logradouro = enderecoCliente.Logradouro;
-            Bairro = enderecoCliente.Bairro;
-            CEP = enderecoCliente.CEP;
-            Numero = enderecoCliente.Numero;
-            cidadeViewModel = new CidadeViewModel(enderecoCliente.Cidade);
+            if (enderecoCliente != null)
+            {
+                EnderecoId = enderecoCliente.Id;
+                Logradouro = enderecoCliente.Logradouro;
+                Bairro = enderecoCliente.Bairro;
+                CEP = enderecoCliente.CEP;
+                Numero = enderecoCliente.Numero;
+                cidadeViewModel = new CidadeViewModel(enderecoCliente.Cidade);
+            }
         }
 
         public int EnderecoId { get; set; }

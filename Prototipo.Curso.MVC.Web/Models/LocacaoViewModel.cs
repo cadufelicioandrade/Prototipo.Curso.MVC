@@ -8,22 +8,24 @@ namespace Prototipo.Curso.MVC.Web.Models
         {
             if(locacao != null)
             {
-                ItemLocacaoId = locacao.Id;
+                LocacaoId = locacao.Id;
                 ValorTotal = locacao.ValorTotal;
                 DataLocacao = locacao.DataLocacao;
                 DataDevolucao = locacao.DataDevolucao;
+                ItemLocacoesViewModel = new List<ItemLocacaoViewModel>();
                 foreach (var item in locacao.ItemLocacoes)
                     ItemLocacoesViewModel.Add(new ItemLocacaoViewModel(item));
             }
             
         }
 
-        public int ItemLocacaoId { get; set; }
+        public int LocacaoId { get; set; }
         public decimal ValorTotal { get; set; }
         public DateTime DataLocacao { get; set; }
         public DateTime DataDevolucao { get; set; }
         public decimal MultaAtraso { get; set; }
-
+        public int ClienteId { get; set; }
+        public int FilmeId { get; set; }
         public virtual List<ItemLocacaoViewModel> ItemLocacoesViewModel { get; set; }
 
         public Locacao ToItemLocacao(IFormCollection collection)

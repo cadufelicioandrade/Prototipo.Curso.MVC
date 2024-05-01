@@ -17,7 +17,7 @@ namespace Prototipo.Curso.MVC.Web.Models
                 FilmeId = itemLocacao.FilmeId;
                 FuncionarioViewModel = new FuncionarioViewModel(itemLocacao.Funcionario);
                 FuncionarioId = itemLocacao.FuncionarioId;
-                LocacaoViewModel = new LocacaoViewModel(itemLocacao.Locacao);
+                //LocacaoViewModel = new LocacaoViewModel(itemLocacao.Locacao);
                 LocacaoId = itemLocacao.LocacaoId;
             }
         }

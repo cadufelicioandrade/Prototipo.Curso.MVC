@@ -1,0 +1,58 @@
+﻿@model Prototipo.Curso.MVC.Web.Models.LocacaoViewModel
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<div>
+    <h4>Detalhes Locacão</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Cliente
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ItemLocacoesViewModel.Where(i => i.LocacaoId == Model.LocacaoId).First().ClienteViewModel.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            Filme
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ItemLocacoesViewModel.Where(i => i.LocacaoId == Model.LocacaoId).First().FilmeViewModel.TituloFilme)
+        </dd>
+        <dt class="col-sm-2">
+            Funcionario
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ItemLocacoesViewModel.Where(i => i.LocacaoId == Model.LocacaoId).First().FuncionarioViewModel.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            Valor Total
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ValorTotal)
+        </dd>
+        <dt class = "col-sm-2">
+            Data Locação
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataLocacao)
+        </dd>
+        <dt class = "col-sm-2">
+            Data Devolução
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataDevolucao)
+        </dd>
+        <dt class = "col-sm-2">
+            Multa Por Atraso
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MultaAtraso)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Editar", "Edit", new { Id = Model.LocacaoId }) |
+    <a asp-action="Index">Voltar à Lista</a>
+</div>

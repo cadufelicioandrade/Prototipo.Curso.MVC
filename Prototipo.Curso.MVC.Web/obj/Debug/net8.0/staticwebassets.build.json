@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Oe6QtPQwjv3hhjcnRAj5aR60Dr8vAZuIXOm2RjcMIR0=",
+  "Hash": "sYAGLkwn6Oxkh9ygTzMVRl5Ns+B0pZFN3W8Hum+dcw0=",
   "Source": "Prototipo.Curso.MVC.Web",
   "BasePath": "_content/Prototipo.Curso.MVC.Web",
   "Mode": "Default",
@@ -205,6 +205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Locacao.png"
+    },
+    {
+      "Identity": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\wwwroot\\js\\createLocacao.js",
+      "SourceId": "Prototipo.Curso.MVC.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\wwwroot\\",
+      "BasePath": "_content/Prototipo.Curso.MVC.Web",
+      "RelativePath": "js/createLocacao.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\createLocacao.js"
     },
     {
       "Identity": "C:\\Users\\Carlos Eduardo\\Desktop\\Prototipo.Curso.MVC\\Prototipo.Curso.MVC.Web\\wwwroot\\js\\site.js",

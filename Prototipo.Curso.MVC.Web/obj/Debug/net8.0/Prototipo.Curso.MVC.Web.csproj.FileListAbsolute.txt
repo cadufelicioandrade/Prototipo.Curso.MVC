@@ -1,3 +1,11 @@
+C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.csproj.AssemblyReference.cache
+C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.AssemblyInfoInputs.cache
+C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.AssemblyInfo.cs
+C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.csproj.CoreCompileInputs.cache
+C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.RazorAssemblyInfo.cache
+C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.RazorAssemblyInfo.cs
 C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\bin\Debug\net8.0\appsettings.json
 C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\bin\Debug\net8.0\Prototipo.Curso.MVC.Web.staticwebassets.runtime.json
@@ -230,14 +238,6 @@ C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\bin\
 C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\bin\Debug\net8.0\Prototipo.Curso.MVC.Dominio.dll
 C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\bin\Debug\net8.0\Prototipo.Curso.MVC.Dados.pdb
 C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\bin\Debug\net8.0\Prototipo.Curso.MVC.Dominio.pdb
-C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.csproj.AssemblyReference.cache
-C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.AssemblyInfoInputs.cache
-C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.AssemblyInfo.cs
-C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.csproj.CoreCompileInputs.cache
-C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.RazorAssemblyInfo.cache
-C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\Prototipo.Curso.MVC.Web.RazorAssemblyInfo.cs
 C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Carlos Eduardo\Desktop\Prototipo.Curso.MVC\Prototipo.Curso.MVC.Web\obj\Debug\net8.0\staticwebassets\msbuild.Prototipo.Curso.MVC.Web.Microsoft.AspNetCore.StaticWebAssets.props
