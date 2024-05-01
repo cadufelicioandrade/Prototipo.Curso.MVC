@@ -70,7 +70,7 @@ namespace Prototipo.Curso.MVC.Web.Controllers
         {
             try
             {
-                var valor = collection["chave"];
+                
                 return RedirectToAction(nameof(Index));
             }
             catch

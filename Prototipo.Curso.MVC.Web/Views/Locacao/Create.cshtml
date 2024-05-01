@@ -4,61 +4,6 @@
     ViewData["Title"] = "Nova Locação";
 }
 
-<script>
-
-    function adicionarItemLocacao() {
-
-        let texto = $("#Filme-select option:selected").text();
-        let id = $("#Filme-select option:selected").val();
-        let tbody = $("#itens-locacoes").find("tbody");
-
-        var linha = $("<tr>");
-        var colunaId = $("<td>").text(id);
-        var colunaTexto = $("<td>").text(texto);
-        var colunaRemover = $("<td>");
-
-        var link = $("<a>").addClass("remover-item").attr("href", "#").text("remover");
-
-        colunaRemover.append(link);
-
-        linha.append(colunaId);
-        linha.append(colunaTexto);
-        linha.append(colunaRemover);
-
-        linha.find(".remover-item").click(function () {
-            event.preventDefault();
-            var l = $(this).parent().parent();
-            l.fadeOut(1000);
-            setTimeout(function () {
-                l.remove();
-            }, 1000);
-        });
-
-        tbody.append(linha);
-    }
-
-    function enviarLocacao() {
-        
-        var formData = new FormData();
-
-        formData.append("chave", "valor");
-
-        $.ajax({
-            type: "POST",
-            url: '/Locacao/Create',
-            dataType: 'Json',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(data){
-                console.log("Requisição enviada");
-            }
-        })
-    }
-
-</script>
-
 <h2>Nova Locação</h2>
 
 <hr />
@@ -84,12 +29,12 @@
 
             <div class="form-group">
                 <label asp-for="DataLocacao" class="control-label">Data Locação</label>
-                <input asp-for="DataLocacao" type="date" class="form-control" />
+                <input asp-for="DataLocacao" id="data-locacao" type="date" class="form-control" />
                 <span asp-validation-for="DataLocacao" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DataDevolucao" class="control-label">Data Devolução</label>
-                <input asp-for="DataDevolucao" type="date" class="form-control" />
+                <input asp-for="DataDevolucao" id="data-devolucao" type="date" class="form-control" />
                 <span asp-validation-for="DataDevolucao" class="text-danger"></span>
             </div>
             <table class="table" id="itens-locacoes" >
@@ -120,5 +65,71 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
+<script>
+
+    function adicionarItemLocacao() {
+
+        let texto = $("#Filme-select option:selected").text();
+        let id = $("#Filme-select option:selected").val();
+        let tbody = $("#itens-locacoes").find("tbody");
+
+        var linha = $("<tr>");
+        var colunaId = $("<td>").addClass("id-item").text(id);
+        var colunaTexto = $("<td>").text(texto);
+        var colunaRemover = $("<td>");
+
+        var link = $("<a>").addClass("remover-item").attr("href", "#").text("remover");
+
+        colunaRemover.append(link);
+
+        linha.append(colunaId);
+        linha.append(colunaTexto);
+        linha.append(colunaRemover);
+
+        linha.find(".remover-item").click(function () {
+            event.preventDefault();
+            var l = $(this).parent().parent();
+            l.fadeOut(1000);
+            setTimeout(function () {
+                l.remove();
+            }, 1000);
+        });
+
+        tbody.append(linha);
+    }
+
+    function enviarLocacao() {
+
+        var formData = new FormData();
+        
+        var idItens = document.querySelectorAll('.id-item');
+        
+        formData.append("ClienteId", $('#ClienteId').val());
+        formData.append("DataLocacao", $('#data-locacao').val());
+        formData.append("DataDevolucao", $('#data-devolucao').val());
+
+        for (let i = 0; i < idItens.length; i++) {
+            formData.append("filmeId" + i.toString(), idItens[i].textContent);
+        }
+
+
+        $.ajax({
+            type: "POST",
+            url: '/Locacao/Create',
+            dataType: 'Json',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            async: false,
+            success: function (data) {
+                console.log("Requisição enviada");
+            }
+        })
+
+        $.get("/Locacao/Index");
+    }
+
+</script>
 
 
